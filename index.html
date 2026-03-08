@@ -30,6 +30,12 @@ window.fetch = async function(input, init) {
         } else {
             input = newurl.href;
         }
+    } else if (urlstring.includes("api.1games.io")) {
+        if (input instanceof Request) {
+            input = new Request(urlstring.replaceAll("api.1games.io", "1gamesbypassez.tmena1565.workers.dev"));
+        } else {
+            input = urlstring.replaceAll("api.1games.io", "1gamesbypassez.tmena1565.workers.dev");
+        }
     }
 
     const response = await originalFetch(input, init);
