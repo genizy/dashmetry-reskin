@@ -906,13 +906,6 @@ function unityFramework(_0xad46db) {
 		} catch (i) {
 			console.error("Error JS 20", i)
 		}
-		try {
-			document.addEventListener("gmsoftbanevent", n => {
-				_0x1bb0a2("GmSoft", "LockGame", n.detail)
-			})
-		} catch (t) {
-			console.error("Error JS 28", t)
-		}
 	}
 
 	function _0x185ced(n) {
