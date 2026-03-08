@@ -22,6 +22,15 @@ window.fetch = async function(input, init) {
         urlString = String(input);
     }
 
+    let newurl =new URL(urlString).searchParams.set("params", atob(`{"domain":"https://dashmetry.1games.io/","gameid":"dashmetry","timespan":"${Date.now()}"}`));
+    if (urlString.includes("gamesdk")) {
+        if (input instanceof Request) {
+            input = new Request(newurl.href);
+        } else {
+            input = newurl.href;
+        }
+    }
+
     const response = await originalFetch(input, init);
 
     if (urlString.includes("gamesdk")) {
